@@ -9,7 +9,7 @@ class Frame < ApplicationRecord
 
   # Calculate the score of a frame by summing the pins knocked down in its rolls
   def score
-    rolls.map(&:pins).sum
+    rolls.sum(:pins)
   end
 
   # Check if the frame was a strike (i.e., all ten pins were knocked down in the first roll)
