@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :games, only: [:create] do
       member do
-        post :roll
         get :score
       end
     end

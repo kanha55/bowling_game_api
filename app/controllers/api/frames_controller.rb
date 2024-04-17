@@ -4,7 +4,7 @@ module Api
 
     # POST /api/frames/:id/roll
     def roll
-      @roll = @frame.rolls.create!(pins: params[:pins])
+      @roll = @frame.rolls.create!(roll_params)
       render json: @roll, status: :created
     end
 
@@ -12,6 +12,10 @@ module Api
 
     def set_frame
       @frame = Frame.find(params[:id])
+    end
+
+    def roll_params
+      params.permit(:pins)
     end
   end
 end
